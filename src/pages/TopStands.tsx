@@ -152,7 +152,7 @@ export default function TopStands() {
           <div className="space-y-4">
             {isLoading ? (
               <div className="bg-card border-2 border-border rounded-xl p-6 text-center">
-                <p className="text-muted-foreground">Carregando ranking...</p>
+                <p className="text-muted-foreground">{t('loadingRanking')}</p>
               </div>
             ) : stands.length > 0 ? (
               stands.map((stand, index) => (
@@ -212,7 +212,7 @@ export default function TopStands() {
               ))
             ) : (
               <div className="bg-card border-2 border-border rounded-xl p-6 text-center">
-                <p className="text-muted-foreground">Nenhum stand encontrado.</p>
+                <p className="text-muted-foreground">{t('noStandFound')}</p>
               </div>
             )}
           </div>

@@ -71,10 +71,10 @@ export default function Home() {
    * Cada objeto define: rota, ícone e label traduzido
    */
   const features = [
-    { to: '/map', icon: <MapIcon className="w-12 h-12" strokeWidth={2} />, label: 'Mapa e Stands' },
+    { to: '/map', icon: <MapIcon className="w-12 h-12" strokeWidth={2} />, label: t('mapAndStands') },
     { to: '/top-stands', icon: <Star className="w-12 h-12" strokeWidth={2} />, label: t('topStands') },
     { to: '/public-photos', icon: <Camera className="w-12 h-12" strokeWidth={2} />, label: t('photos') },
-    { to: '/rating', icon: <MessageSquare className="w-12 h-12" strokeWidth={2} />, label: 'Avaliação' },
+    { to: '/rating', icon: <MessageSquare className="w-12 h-12" strokeWidth={2} />, label: t('rating') },
     { to: '/information', icon: <Info className="w-12 h-12" strokeWidth={2} />, label: t('information') },
     { to: '/help', icon: <HelpCircle className="w-12 h-12" strokeWidth={2} />, label: t('help') },
   ];
@@ -117,7 +117,7 @@ export default function Home() {
                   className="flex items-center gap-1 bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-colors rounded-lg px-3 py-2"
                 >
                   <LogOut className="w-4 h-4" strokeWidth={2} />
-                  <span className="text-sm font-medium">Sair</span>
+                  <span className="text-sm font-medium">{t('logout')}</span>
                 </button>
               </div>
             ) : (
@@ -129,7 +129,7 @@ export default function Home() {
                   className="flex items-center gap-1 bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors rounded-lg px-3 py-2"
                 >
                   <LogIn className="w-4 h-4" strokeWidth={2} />
-                  <span className="text-sm font-medium">Entrar</span>
+                  <span className="text-sm font-medium">{t('signIn')}</span>
                 </Link>
                 {/* BOTÃO CADASTRAR - Navega para /signup */}
                 <Link
@@ -137,7 +137,7 @@ export default function Home() {
                   className="flex items-center gap-1 bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-colors rounded-lg px-3 py-2"
                 >
                   <UserPlus className="w-4 h-4" strokeWidth={2} />
-                  <span className="text-sm font-medium">Cadastrar</span>
+                  <span className="text-sm font-medium">{t('signUp')}</span>
                 </Link>
               </div>
             )}

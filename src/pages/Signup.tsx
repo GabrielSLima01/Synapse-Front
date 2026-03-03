@@ -72,6 +72,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageFooter } from '@/components/layout/PageFooter';
 import SurveyPopup from '@/components/SurveyPopup';
@@ -80,6 +81,7 @@ import { User, UserPlus, AlertCircle, ShieldCheck, Timer } from 'lucide-react';
 
 export default function Signup() {
   const { registerUser, verifyCode, isLoading } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   
   // ============================================================
@@ -144,7 +146,7 @@ export default function Signup() {
 
     // Validação: campos não vazios
     if (!nome.trim() || !whatsapp.trim()) {
-      setError('Por favor, preencha todos os campos.');
+      setError(t('fillAllFields'));
       return;
     }
 
@@ -173,7 +175,7 @@ export default function Signup() {
     }
 
     if (!codigo.trim()) {
-      setError('Por favor, informe o código enviado.');
+      setError(t('pleaseEnterCode'));
       return;
     }
 
@@ -188,7 +190,7 @@ export default function Signup() {
         startLockTimer(Number(match[1]));
         setError(msg);
       } else {
-        setError('Código inválido. Tente novamente.');
+        setError(t('invalidCode'));
       }
       return;
     }
@@ -212,7 +214,7 @@ export default function Signup() {
   
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <PageHeader title="Cadastro" />
+      <PageHeader title={t('signUpTitle')} />
 
       <main className="flex-1 px-4 py-6 flex items-center justify-center">
         <div className="max-w-lg w-full">
@@ -232,7 +234,7 @@ export default function Signup() {
                 )}
               </div>
               <h2 className="text-accessible-xl font-bold text-foreground">
-                {step === 'register' ? 'Criar Conta' : 'Confirmar Código'}
+                {step === 'register' ? t('createAccount') : t('confirmCode')}
               </h2>
             </div>
 
@@ -253,7 +255,7 @@ export default function Signup() {
                     ============================================================ */}
                 <div className="mb-4">
                   <label htmlFor="nome" className="block text-accessible-base font-semibold text-foreground mb-2">
-                    Nome
+                    {t('name')}
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -264,7 +266,7 @@ export default function Signup() {
                       onChange={(e) => setNome(e.target.value)}
                       className="w-full pl-12 pr-4 py-4 border-2 border-border rounded-xl text-accessible-base
                                  focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
-                      placeholder="Digite seu nome"
+                      placeholder={t('enterYourName')}
                       autoComplete="name"
                       required
                     />
@@ -276,14 +278,14 @@ export default function Signup() {
                     ============================================================ */}
                 <div className="mb-4">
                   <label htmlFor="whatsapp" className="block text-accessible-base font-semibold text-foreground mb-2">
-                    Número de WhatsApp
+                    {t('whatsappNumber')}
                   </label>
                   <PhoneInput
                     value={whatsapp}
                     onChange={setWhatsapp}
                     required
                   />
-                  <p className="mt-1 text-xs text-muted-foreground">Selecione o país e digite seu número</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{t('selectCountryAndNumber')}</p>
                 </div>
 
               </>
@@ -292,7 +294,7 @@ export default function Signup() {
             {step === 'verify' && (
               <div className="mb-6">
                 <label htmlFor="codigo" className="block text-accessible-base font-semibold text-foreground mb-2">
-                  Código de 6 dígitos
+                  {t('sixDigitCode')}
                 </label>
                 <input
                   type="text"
@@ -322,11 +324,11 @@ export default function Signup() {
               {lockSeconds > 0 ? (
                 <span className="flex items-center justify-center gap-2">
                   <Timer className="w-5 h-5" />
-                  Aguarde {lockSeconds}s
+                  {t('waitSeconds')} {lockSeconds}s
                 </span>
               ) : step === 'register'
-                ? isSubmitting ? 'Enviando código...' : 'Enviar Código'
-                : isSubmitting ? 'Confirmando...' : 'Confirmar Código'}
+                ? isSubmitting ? t('sendingCodeEllipsis') : t('sendCode')
+                : isSubmitting ? t('confirming') : t('confirmCode')}
             </button>
 
             {step === 'verify' && (
@@ -336,7 +338,7 @@ export default function Signup() {
                 className="w-full mt-3 py-3 border-2 border-border rounded-xl text-sm font-medium
                            hover:bg-secondary transition-colors"
               >
-                Voltar para cadastro
+                {t('backToSignUp')}
               </button>
             )}
 
@@ -346,9 +348,9 @@ export default function Signup() {
             {step === 'register' && (
               <div className="mt-6 text-center">
                 <p className="text-muted-foreground">
-                  Já tem conta?{' '}
+                  {t('alreadyHaveAccount')}{' '}
                   <Link to="/login" className="text-primary hover:underline font-semibold">
-                    Faça login
+                    {t('loginLink')}
                   </Link>
                 </p>
               </div>

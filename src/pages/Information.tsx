@@ -135,10 +135,10 @@ export default function Information() {
               </div>
               <div>
                 <h2 className="text-accessible-lg font-bold mb-1">
-                  Entrada Gratuita
+                  {t('freeAdmission')}
                 </h2>
                 <p className="text-accessible-base opacity-90">
-                  Free Admission
+                  {t('freeAdmissionDesc')}
                 </p>
               </div>
             </div>
@@ -164,10 +164,10 @@ export default function Information() {
                 </div>
                 <div>
                   <h2 className="text-accessible-lg font-bold text-foreground mb-1">
-                    Ir para o site da FENEARTE
+                    {t('goToFenearteSite')}
                   </h2>
                   <p className="text-accessible-base text-muted-foreground">
-                    Acesse todas as informações oficiais
+                    {t('accessOfficialInfo')}
                   </p>
                 </div>
               </div>

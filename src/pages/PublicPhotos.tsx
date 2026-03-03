@@ -136,12 +136,12 @@ export default function PublicPhotos() {
    */
   const handleSubmitPhoto = async () => {
     if (!authorName.trim()) {
-      toast.error('Por favor, informe seu nome');
+      toast.error(t('pleaseEnterName'));
       return;
     }
 
     if (!selectedFile) {
-      toast.error('Por favor, selecione uma foto');
+      toast.error(t('pleaseSelectPhoto'));
       return;
     }
     
@@ -151,9 +151,9 @@ export default function PublicPhotos() {
       await photoService.uploadPhoto({ author: authorName.trim(), image: selectedFile });
       setSubmitted(true);
       setSelectedFile(null);
-      toast.success('Foto enviada para análise!');
+      toast.success(t('photoSentForReview'));
     } catch {
-      toast.error('Erro ao enviar foto');
+      toast.error(t('errorSendingPhoto'));
     } finally {
       setIsSubmitting(false);
     }
@@ -239,7 +239,7 @@ export default function PublicPhotos() {
           <div className="text-center animate-fade-in">
             <Camera className="w-12 h-12 text-primary mx-auto mb-3" strokeWidth={2} />
             <p className="text-accessible-base text-muted-foreground">
-              Envie sua foto da FENEARTE! As melhores serão publicadas na galeria.
+              {t('publicPhotosUploadDescription')}
             </p>
           </div>
 
@@ -265,7 +265,7 @@ export default function PublicPhotos() {
               {/* PILLS DE ANOS */}
               <div className="flex gap-2 overflow-x-auto py-2 px-1">
                 {isLoadingEditions ? (
-                  <span className="text-sm text-muted-foreground">Carregando edições...</span>
+                  <span className="text-sm text-muted-foreground">{t('loadingEditions')}</span>
                 ) : editionYears.length > 0 ? (
                   editionYears.map((edition, index) => (
                     <button
@@ -282,7 +282,7 @@ export default function PublicPhotos() {
                     </button>
                   ))
                 ) : (
-                  <span className="text-sm text-muted-foreground">Nenhuma edição encontrada</span>
+                  <span className="text-sm text-muted-foreground">{t('noEditionFound')}</span>
                 )}
               </div>
 
@@ -324,10 +324,10 @@ export default function PublicPhotos() {
                 <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6 text-center">
                   <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-3" />
                   <h3 className="text-accessible-lg font-bold text-green-800 mb-2">
-                    Foto Enviada!
+                    {t('photoSubmitted')}
                   </h3>
                   <p className="text-green-700 text-sm">
-                    Sua foto foi enviada e será analisada pelos administradores.
+                    {t('photoUnderReview')}
                   </p>
                   <button
                     onClick={() => {
@@ -337,7 +337,7 @@ export default function PublicPhotos() {
                     }}
                     className="mt-4 text-green-700 underline text-sm"
                   >
-                    Enviar outra foto
+                    {t('sendAnotherPhoto')}
                   </button>
                 </div>
               ) : (
@@ -348,7 +348,7 @@ export default function PublicPhotos() {
                     type="text"
                     value={authorName}
                     onChange={(e) => setAuthorName(e.target.value)}
-                    placeholder="Seu nome"
+                    placeholder={t('yourName')}
                     maxLength={30}
                     className="w-full px-4 py-3 border-2 border-border rounded-xl text-accessible-base
                                focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
@@ -371,10 +371,10 @@ export default function PublicPhotos() {
                     ) : (
                       <Upload className="w-6 h-6" strokeWidth={2} />
                     )}
-                    {isSubmitting ? 'Enviando...' : 'Enviar Foto para Análise'}
+                    {isSubmitting ? t('sending') : t('submitPhoto')}
                   </button>
                   <p className="text-sm text-muted-foreground text-center">
-                    As fotos serão analisadas antes de serem publicadas
+                    {t('photoReviewNote')}
                   </p>
                 </div>
               )}
@@ -389,11 +389,11 @@ export default function PublicPhotos() {
           <div className="animate-fade-in animation-delay-200">
             <h2 className="text-accessible-lg font-bold text-foreground mb-4 flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-600" />
-              Fotos Aprovadas - {selectedYear?.year ?? ''}
+              {t('approvedPhotos')} - {selectedYear?.year ?? ''}
             </h2>
             {isLoadingPhotos ? (
               <div className="text-center py-8 bg-muted/30 rounded-xl">
-                <p className="text-muted-foreground text-sm">Carregando fotos...</p>
+                <p className="text-muted-foreground text-sm">{t('loadingPhotos')}</p>
               </div>
             ) : selectedYear && selectedYear.photos.length > 0 ? (
               <div className="grid grid-cols-2 gap-3">
@@ -419,7 +419,7 @@ export default function PublicPhotos() {
               // Estado vazio
               <div className="text-center py-8 bg-muted/30 rounded-xl">
                 <ImageIcon className="w-10 h-10 text-muted-foreground mx-auto mb-2" />
-                <p className="text-muted-foreground text-sm">Nenhuma foto disponível</p>
+                <p className="text-muted-foreground text-sm">{t('noPhotosAvailable')}</p>
               </div>
             )}
           </div>

@@ -361,14 +361,14 @@ export default function Map() {
           {showFilters && (
             <div className="bg-card border-2 border-border rounded-xl p-4 animate-fade-in">
               <div className="flex items-center justify-between mb-3">
-                <span className="font-medium text-foreground text-sm">Categoria</span>
+                <span className="font-medium text-foreground text-sm">{t('category')}</span>
                 {selectedCategory && (
                   <button
                     onClick={() => setSelectedCategory(null)}
                     className="text-sm text-primary hover:underline flex items-center gap-1"
                   >
                     <X className="w-4 h-4" />
-                    Limpar
+                    {t('clear')}
                   </button>
                 )}
               </div>
@@ -400,7 +400,7 @@ export default function Map() {
                     <Gift className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-foreground">Trilha sugerida</p>
+                    <p className="text-sm font-semibold text-foreground">{t('suggestedTrail')}</p>
                     <p className="text-xs text-muted-foreground truncate">
                       Categoria: {selectedCategory}
                     </p>
@@ -491,24 +491,24 @@ export default function Map() {
             <div className="absolute bottom-3 left-3 bg-card/90 backdrop-blur-sm rounded-lg px-3 py-2 text-xs space-y-1 border border-border">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" fill="currentColor" />
-                <span className="text-foreground">Entrada/Saída</span>
+                <span className="text-foreground">{t('entrance')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-blue-500" fill="currentColor" />
-                <span className="text-foreground">Banheiros</span>
+                <span className="text-foreground">{t('bathrooms')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-green-500" fill="currentColor" />
-                <span className="text-foreground">Eco Pontos</span>
+                <span className="text-foreground">{t('ecoPoints')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-yellow-500" fill="currentColor" />
-                <span className="text-foreground">Descanso</span>
+                <span className="text-foreground">{t('restArea')}</span>
               </div>
               {hasActiveFilter && (
                 <div className="flex items-center gap-2 border-t border-border pt-1">
                   <MapPin className="w-4 h-4 text-red-500" fill="currentColor" />
-                  <span className="text-foreground">Stands</span>
+                  <span className="text-foreground">{t('stands')}</span>
                 </div>
               )}
             </div>
@@ -554,7 +554,7 @@ export default function Map() {
           {hasActiveFilter && filteredStands.length > 0 && (
             <div className="space-y-2">
               <h3 className="text-sm font-medium text-muted-foreground">
-                {filteredStands.length > 20 ? 'Primeiros 20 stands:' : 'Stands encontrados:'}
+                {filteredStands.length > 20 ? t('first20Stands') : t('standsFoundLabel')}
               </h3>
               <div className="space-y-2 max-h-60 overflow-y-auto">
                 {filteredStands.slice(0, 20).map((stand) => (
@@ -593,13 +593,13 @@ export default function Map() {
           )}
 
           {hasActiveFilter && standsLoading && (
-            <p className="text-center text-muted-foreground text-sm">Carregando stands...</p>
+            <p className="text-center text-muted-foreground text-sm">{t('loadingStands')}</p>
           )}
 
           {/* MENSAGEM QUANDO NÃO HÁ FILTRO ATIVO */}
           {!hasActiveFilter && (
             <p className="text-center text-muted-foreground text-sm">
-              💡 Pesquise ou selecione uma categoria para ver os stands no mapa
+              {t('searchOrSelectCategory')}
             </p>
           )}
         </div>

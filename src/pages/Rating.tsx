@@ -196,22 +196,22 @@ export default function Rating() {
     e.preventDefault();
 
     if (!user) {
-      toast.error('Faça login para deixar uma avaliação');
+      toast.error(t('loginToReview'));
       navigate('/login');
       return;
     }
     
     // Validações
     if (!name.trim()) {
-      toast.error('Por favor, informe seu nome');
+      toast.error(t('pleaseEnterName'));
       return;
     }
     
     if (rating === 0) {
-      toast.error('Por favor, selecione uma avaliação');
+      toast.error(t('pleaseSelectRating'));
       return;
     }
-    
+
     setIsSubmitting(true);
     try {
       const created = await ratingService.createRating({
@@ -226,9 +226,9 @@ export default function Rating() {
       setName('');
       setDescription('');
       setRating(0);
-      toast.success('Avaliação enviada com sucesso!');
+      toast.success(t('ratingSuccess'));
     } catch (err) {
-      toast.error('Erro ao enviar avaliação');
+      toast.error(t('ratingError'));
     } finally {
       setIsSubmitting(false);
     }
@@ -268,7 +268,7 @@ export default function Rating() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <PageHeader title="Avaliação" />
+      <PageHeader title={t('ratingTitle')} />
 
       <main className="flex-1 px-4 py-6">
         <div className="max-w-lg mx-auto space-y-6">
@@ -278,10 +278,10 @@ export default function Rating() {
               ============================================================ */}
           <div className="text-center animate-fade-in">
             <h2 className="text-accessible-xl font-bold text-primary mb-2">
-              Pesquisa de Satisfação
+              {t('satisfactionSurvey')}
             </h2>
             <p className="text-muted-foreground">
-              Conte pra gente como foi sua experiência.
+              {t('tellUsExperience')}
             </p>
           </div>
 
@@ -298,7 +298,7 @@ export default function Rating() {
             {/* CAMPO: NOME */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Seu Nome
+                {t('yourName')}
               </label>
               <input
                 type="text"
@@ -307,14 +307,14 @@ export default function Rating() {
                 maxLength={50}
                 className="w-full px-4 py-3 border-2 border-border rounded-xl text-accessible-base
                            focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors bg-background"
-                placeholder="Digite seu nome"
+                placeholder={t('enterYourName')}
               />
             </div>
 
             {/* CAMPO: DESCRIÇÃO (limite 30 caracteres) */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Descrição (máx. 30)
+                {t('descriptionMax30')}
               </label>
               <textarea
                 value={description}
@@ -323,7 +323,7 @@ export default function Rating() {
                 rows={2}
                 className="w-full px-4 py-3 border-2 border-border rounded-xl text-accessible-base
                            focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors bg-background resize-none"
-                placeholder="Como foi sua experiência?"
+                placeholder={t('howWasExperience')}
               />
               <p className="text-xs text-muted-foreground mt-1 text-right">
                 {description.length}/30
@@ -333,7 +333,7 @@ export default function Rating() {
             {/* CAMPO: AVALIAÇÃO POR ESTRELAS */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Avaliação
+                {t('ratingLabel')}
               </label>
               <StarRating rating={rating} onRate={setRating} />
             </div>
@@ -346,7 +346,7 @@ export default function Rating() {
                          text-accessible-lg font-bold shadow-button hover:shadow-button-hover
                          disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar Avaliação'}
+              {isSubmitting ? t('submitting') : t('submitRating')}
             </button>
           </form>
 
@@ -357,7 +357,7 @@ export default function Rating() {
               ============================================================ */}
           <div className="space-y-4 animate-fade-in animation-delay-200">
             <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide">
-              Avaliações
+              {t('reviews')}
             </h3>
 
             {/* FILTROS POR ESTRELAS */}
@@ -370,7 +370,7 @@ export default function Rating() {
                              ? 'bg-primary text-primary-foreground' 
                              : 'bg-card border-2 border-border text-foreground hover:bg-secondary'}`}
               >
-                Todas
+                {t('allFilter')}
               </button>
               {/* Botões: 1-5 estrelas */}
               {[1, 2, 3, 4, 5].map((star) => (
@@ -408,7 +408,7 @@ export default function Rating() {
                 ))
               ) : (
                 <p className="text-center text-muted-foreground py-8">
-                  Nenhuma avaliação encontrada
+                  {t('noReviewsFound')}
                 </p>
               )}
             </div>

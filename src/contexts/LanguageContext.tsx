@@ -406,6 +406,528 @@ export const translations: Translations = {
     en: 'Logout',
     es: 'Cerrar Sesión',
   },
+
+  // ===== HOME - BOTÕES E HEADER =====
+  mapAndStands: {
+    pt: 'Mapa e Stands',
+    en: 'Map & Stands',
+    es: 'Mapa y Stands',
+  },
+  rating: {
+    pt: 'Avaliação',
+    en: 'Rating',
+    es: 'Evaluación',
+  },
+  signIn: {
+    pt: 'Entrar',
+    en: 'Sign In',
+    es: 'Iniciar Sesión',
+  },
+  signUp: {
+    pt: 'Cadastrar',
+    en: 'Sign Up',
+    es: 'Registrarse',
+  },
+
+  // ===== PÁGINA DE AVALIAÇÃO (RATING) =====
+  ratingTitle: {
+    pt: 'Avaliação',
+    en: 'Rating',
+    es: 'Evaluación',
+  },
+  satisfactionSurvey: {
+    pt: 'Pesquisa de Satisfação',
+    en: 'Satisfaction Survey',
+    es: 'Encuesta de Satisfacción',
+  },
+  tellUsExperience: {
+    pt: 'Conte pra gente como foi sua experiência.',
+    en: 'Tell us about your experience.',
+    es: 'Cuéntanos cómo fue tu experiencia.',
+  },
+  yourName: {
+    pt: 'Seu Nome',
+    en: 'Your Name',
+    es: 'Tu Nombre',
+  },
+  enterYourName: {
+    pt: 'Digite seu nome',
+    en: 'Enter your name',
+    es: 'Ingresa tu nombre',
+  },
+  descriptionMax30: {
+    pt: 'Descrição (máx. 30)',
+    en: 'Description (max. 30)',
+    es: 'Descripción (máx. 30)',
+  },
+  howWasExperience: {
+    pt: 'Como foi sua experiência?',
+    en: 'How was your experience?',
+    es: '¿Cómo fue tu experiencia?',
+  },
+  ratingLabel: {
+    pt: 'Avaliação',
+    en: 'Rating',
+    es: 'Evaluación',
+  },
+  submitRating: {
+    pt: 'Enviar Avaliação',
+    en: 'Submit Rating',
+    es: 'Enviar Evaluación',
+  },
+  submitting: {
+    pt: 'Enviando...',
+    en: 'Submitting...',
+    es: 'Enviando...',
+  },
+  reviews: {
+    pt: 'Avaliações',
+    en: 'Reviews',
+    es: 'Evaluaciones',
+  },
+  allFilter: {
+    pt: 'Todas',
+    en: 'All',
+    es: 'Todas',
+  },
+  noReviewsFound: {
+    pt: 'Nenhuma avaliação encontrada',
+    en: 'No reviews found',
+    es: 'No se encontraron evaluaciones',
+  },
+  loginToReview: {
+    pt: 'Faça login para deixar uma avaliação',
+    en: 'Login to leave a review',
+    es: 'Inicia sesión para dejar una evaluación',
+  },
+  pleaseEnterName: {
+    pt: 'Por favor, informe seu nome',
+    en: 'Please enter your name',
+    es: 'Por favor, ingresa tu nombre',
+  },
+  pleaseSelectRating: {
+    pt: 'Por favor, selecione uma avaliação',
+    en: 'Please select a rating',
+    es: 'Por favor, selecciona una evaluación',
+  },
+  ratingSuccess: {
+    pt: 'Avaliação enviada com sucesso!',
+    en: 'Rating submitted successfully!',
+    es: '¡Evaluación enviada con éxito!',
+  },
+  ratingError: {
+    pt: 'Erro ao enviar avaliação',
+    en: 'Error submitting rating',
+    es: 'Error al enviar evaluación',
+  },
+
+  // ===== FOTOS PÚBLICAS =====
+  publicPhotosUploadDescription: {
+    pt: 'Envie sua foto da FENEARTE! As melhores serão publicadas na galeria.',
+    en: 'Submit your FENEARTE photo! The best ones will be published in the gallery.',
+    es: '¡Envía tu foto de FENEARTE! Las mejores serán publicadas en la galería.',
+  },
+  loadingEditions: {
+    pt: 'Carregando edições...',
+    en: 'Loading editions...',
+    es: 'Cargando ediciones...',
+  },
+  noEditionFound: {
+    pt: 'Nenhuma edição encontrada',
+    en: 'No edition found',
+    es: 'No se encontró ninguna edición',
+  },
+  sendAnotherPhoto: {
+    pt: 'Enviar outra foto',
+    en: 'Send another photo',
+    es: 'Enviar otra foto',
+  },
+  loadingPhotos: {
+    pt: 'Carregando fotos...',
+    en: 'Loading photos...',
+    es: 'Cargando fotos...',
+  },
+  noPhotosAvailable: {
+    pt: 'Nenhuma foto disponível',
+    en: 'No photos available',
+    es: 'No hay fotos disponibles',
+  },
+  pleaseSelectPhoto: {
+    pt: 'Por favor, selecione uma foto',
+    en: 'Please select a photo',
+    es: 'Por favor, selecciona una foto',
+  },
+  photoSentForReview: {
+    pt: 'Foto enviada para análise!',
+    en: 'Photo sent for review!',
+    es: '¡Foto enviada para revisión!',
+  },
+  errorSendingPhoto: {
+    pt: 'Erro ao enviar foto',
+    en: 'Error sending photo',
+    es: 'Error al enviar foto',
+  },
+
+  // ===== MAPA =====
+  category: {
+    pt: 'Categoria',
+    en: 'Category',
+    es: 'Categoría',
+  },
+  clear: {
+    pt: 'Limpar',
+    en: 'Clear',
+    es: 'Limpiar',
+  },
+  suggestedTrail: {
+    pt: 'Trilha sugerida',
+    en: 'Suggested trail',
+    es: 'Ruta sugerida',
+  },
+  entrance: {
+    pt: 'Entrada/Saída',
+    en: 'Entrance/Exit',
+    es: 'Entrada/Salida',
+  },
+  bathrooms: {
+    pt: 'Banheiros',
+    en: 'Restrooms',
+    es: 'Baños',
+  },
+  ecoPoints: {
+    pt: 'Eco Pontos',
+    en: 'Eco Points',
+    es: 'Eco Puntos',
+  },
+  restArea: {
+    pt: 'Descanso',
+    en: 'Rest Area',
+    es: 'Descanso',
+  },
+  stands: {
+    pt: 'Stands',
+    en: 'Stands',
+    es: 'Stands',
+  },
+  viewDetails: {
+    pt: 'Ver detalhes',
+    en: 'View details',
+    es: 'Ver detalles',
+  },
+  first20Stands: {
+    pt: 'Primeiros 20 stands:',
+    en: 'First 20 stands:',
+    es: 'Primeros 20 stands:',
+  },
+  standsFoundLabel: {
+    pt: 'Stands encontrados:',
+    en: 'Stands found:',
+    es: 'Stands encontrados:',
+  },
+  loadingStands: {
+    pt: 'Carregando stands...',
+    en: 'Loading stands...',
+    es: 'Cargando stands...',
+  },
+  searchOrSelectCategory: {
+    pt: '💡 Pesquise ou selecione uma categoria para ver os stands no mapa',
+    en: '💡 Search or select a category to see stands on the map',
+    es: '💡 Busca o selecciona una categoría para ver los stands en el mapa',
+  },
+
+  // ===== INFORMAÇÕES =====
+  freeAdmission: {
+    pt: 'Entrada Gratuita',
+    en: 'Free Admission',
+    es: 'Entrada Gratuita',
+  },
+  freeAdmissionDesc: {
+    pt: 'Entrada Gratuita',
+    en: 'Free Admission',
+    es: 'Entrada Gratuita',
+  },
+  goToFenearteSite: {
+    pt: 'Ir para o site da FENEARTE',
+    en: 'Go to FENEARTE website',
+    es: 'Ir al sitio web de FENEARTE',
+  },
+  accessOfficialInfo: {
+    pt: 'Acesse todas as informações oficiais',
+    en: 'Access all official information',
+    es: 'Accede a toda la información oficial',
+  },
+
+  // ===== TOP STANDS =====
+  loadingRanking: {
+    pt: 'Carregando ranking...',
+    en: 'Loading ranking...',
+    es: 'Cargando ranking...',
+  },
+  noStandFound: {
+    pt: 'Nenhum stand encontrado.',
+    en: 'No stand found.',
+    es: 'Ningún stand encontrado.',
+  },
+
+  // ===== STAND DETAIL =====
+  loading: {
+    pt: 'Carregando',
+    en: 'Loading',
+    es: 'Cargando',
+  },
+  loadingStandData: {
+    pt: 'Carregando dados do stand...',
+    en: 'Loading stand data...',
+    es: 'Cargando datos del stand...',
+  },
+  standNotFound: {
+    pt: 'Stand não encontrado',
+    en: 'Stand not found',
+    es: 'Stand no encontrado',
+  },
+  standNotFoundDesc: {
+    pt: 'O stand não foi encontrado.',
+    en: 'The stand was not found.',
+    es: 'El stand no fue encontrado.',
+  },
+  backToMap: {
+    pt: 'Voltar ao Mapa',
+    en: 'Back to Map',
+    es: 'Volver al Mapa',
+  },
+  aboutExhibitor: {
+    pt: 'Sobre o Expositor',
+    en: 'About the Exhibitor',
+    es: 'Sobre el Expositor',
+  },
+  locationOnMap: {
+    pt: 'Localização no Mapa',
+    en: 'Location on Map',
+    es: 'Ubicación en el Mapa',
+  },
+  commentMax30: {
+    pt: 'Comentário (máx. 30)',
+    en: 'Comment (max. 30)',
+    es: 'Comentario (máx. 30)',
+  },
+  send: {
+    pt: 'Enviar',
+    en: 'Send',
+    es: 'Enviar',
+  },
+  beFirstToReview: {
+    pt: 'Seja o primeiro a avaliar!',
+    en: 'Be the first to review!',
+    es: '¡Sé el primero en evaluar!',
+  },
+
+  // ===== LOGIN =====
+  enterButton: {
+    pt: 'Entrar',
+    en: 'Sign In',
+    es: 'Iniciar Sesión',
+  },
+  confirmCode: {
+    pt: 'Confirmar Código',
+    en: 'Confirm Code',
+    es: 'Confirmar Código',
+  },
+  whatsappNumber: {
+    pt: 'Número de WhatsApp',
+    en: 'WhatsApp Number',
+    es: 'Número de WhatsApp',
+  },
+  selectCountryAndNumber: {
+    pt: 'Selecione o país e digite seu número',
+    en: 'Select your country and enter your number',
+    es: 'Selecciona tu país e ingresa tu número',
+  },
+  sixDigitCode: {
+    pt: 'Código de 6 dígitos',
+    en: '6-digit code',
+    es: 'Código de 6 dígitos',
+  },
+  pleaseEnterWhatsapp: {
+    pt: 'Por favor, informe seu número de WhatsApp.',
+    en: 'Please enter your WhatsApp number.',
+    es: 'Por favor, ingresa tu número de WhatsApp.',
+  },
+  pleaseEnterCode: {
+    pt: 'Por favor, informe o código enviado.',
+    en: 'Please enter the code sent.',
+    es: 'Por favor, ingresa el código enviado.',
+  },
+  invalidCode: {
+    pt: 'Código inválido. Tente novamente.',
+    en: 'Invalid code. Try again.',
+    es: 'Código inválido. Inténtalo de nuevo.',
+  },
+  sendCode: {
+    pt: 'Enviar Código',
+    en: 'Send Code',
+    es: 'Enviar Código',
+  },
+  sendingCode: {
+    pt: 'Enviando...',
+    en: 'Sending...',
+    es: 'Enviando...',
+  },
+  confirming: {
+    pt: 'Confirmando...',
+    en: 'Confirming...',
+    es: 'Confirmando...',
+  },
+  changeNumber: {
+    pt: 'Trocar número',
+    en: 'Change number',
+    es: 'Cambiar número',
+  },
+  noAccount: {
+    pt: 'Não tem conta?',
+    en: "Don't have an account?",
+    es: '¿No tienes cuenta?',
+  },
+  signUpLink: {
+    pt: 'Cadastre-se',
+    en: 'Sign Up',
+    es: 'Regístrate',
+  },
+  waitSeconds: {
+    pt: 'Aguarde',
+    en: 'Wait',
+    es: 'Espera',
+  },
+
+  // ===== CADASTRO (SIGNUP) =====
+  signUpTitle: {
+    pt: 'Cadastro',
+    en: 'Sign Up',
+    es: 'Registro',
+  },
+  createAccount: {
+    pt: 'Criar Conta',
+    en: 'Create Account',
+    es: 'Crear Cuenta',
+  },
+  name: {
+    pt: 'Nome',
+    en: 'Name',
+    es: 'Nombre',
+  },
+  fillAllFields: {
+    pt: 'Por favor, preencha todos os campos.',
+    en: 'Please fill in all fields.',
+    es: 'Por favor, completa todos los campos.',
+  },
+  sendingCodeEllipsis: {
+    pt: 'Enviando código...',
+    en: 'Sending code...',
+    es: 'Enviando código...',
+  },
+  backToSignUp: {
+    pt: 'Voltar para cadastro',
+    en: 'Back to sign up',
+    es: 'Volver al registro',
+  },
+  alreadyHaveAccount: {
+    pt: 'Já tem conta?',
+    en: 'Already have an account?',
+    es: '¿Ya tienes cuenta?',
+  },
+  loginLink: {
+    pt: 'Faça login',
+    en: 'Log in',
+    es: 'Inicia sesión',
+  },
+
+  // ===== PERFIL =====
+  myProfile: {
+    pt: 'Meu Perfil',
+    en: 'My Profile',
+    es: 'Mi Perfil',
+  },
+  completedTrails: {
+    pt: 'Trilhas realizadas',
+    en: 'Completed Trails',
+    es: 'Rutas completadas',
+  },
+  loadingTrails: {
+    pt: 'Carregando trilhas...',
+    en: 'Loading trails...',
+    es: 'Cargando rutas...',
+  },
+  noCompletedTrails: {
+    pt: 'Você ainda não concluiu trilhas. Vá ao mapa e escolha uma categoria para começar.',
+    en: "You haven't completed any trails yet. Go to the map and choose a category to start.",
+    es: 'Aún no has completado rutas. Ve al mapa y elige una categoría para comenzar.',
+  },
+  completedOn: {
+    pt: 'Concluída em',
+    en: 'Completed on',
+    es: 'Completada el',
+  },
+  standsCompleted: {
+    pt: 'stands concluídos',
+    en: 'stands completed',
+    es: 'stands completados',
+  },
+  exploreNewTrails: {
+    pt: 'Explorar novas trilhas',
+    en: 'Explore new trails',
+    es: 'Explorar nuevas rutas',
+  },
+
+  // ===== TRILHA MISSÃO =====
+  trailTitle: {
+    pt: 'Trilha para ganhar brindes!!',
+    en: 'Trail to win prizes!!',
+    es: '¡¡Ruta para ganar premios!!',
+  },
+  yourMission: {
+    pt: 'Sua missão',
+    en: 'Your mission',
+    es: 'Tu misión',
+  },
+  missionDescription: {
+    pt: 'Passe em todos os stands da rota e ganhe brindes.',
+    en: 'Visit all stands on the route and win prizes.',
+    es: 'Visita todos los stands de la ruta y gana premios.',
+  },
+  loadingTrail: {
+    pt: 'Carregando trilha...',
+    en: 'Loading trail...',
+    es: 'Cargando ruta...',
+  },
+  selectCategoryOnMap: {
+    pt: 'Selecione uma categoria no mapa para gerar uma trilha.',
+    en: 'Select a category on the map to generate a trail.',
+    es: 'Selecciona una categoría en el mapa para generar una ruta.',
+  },
+  noActiveTrail: {
+    pt: 'Nenhuma trilha ativa encontrada para a categoria',
+    en: 'No active trail found for category',
+    es: 'No se encontró una ruta activa para la categoría',
+  },
+  progress: {
+    pt: 'Progresso',
+    en: 'Progress',
+    es: 'Progreso',
+  },
+  missionCompleted: {
+    pt: 'Missão concluída! 🎉',
+    en: 'Mission completed! 🎉',
+    es: '¡Misión completada! 🎉',
+  },
+  missionCompletedToast: {
+    pt: 'Missão concluída! Você completou essa trilha 🎉',
+    en: 'Mission completed! You finished this trail 🎉',
+    es: '¡Misión completada! Completaste esta ruta 🎉',
+  },
+  updateProgress: {
+    pt: 'Atualizar progresso',
+    en: 'Update progress',
+    es: 'Actualizar progreso',
+  },
 };
 
 // Interface do contexto

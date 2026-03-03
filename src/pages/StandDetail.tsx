@@ -210,7 +210,7 @@ export default function StandDetail() {
   const handleSubmitReview = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) {
-      toast.error('Faça login para deixar uma avaliação');
+      toast.error(t('loginToReview'));
       navigate('/login');
       return;
     }
@@ -280,10 +280,10 @@ export default function StandDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background flex flex-col">
-        <PageHeader title="Carregando" />
+        <PageHeader title={t('loading')} />
         <main className="flex-1 px-4 py-6 flex items-center justify-center">
           <div className="text-center">
-            <p className="text-muted-foreground">Carregando dados do stand...</p>
+            <p className="text-muted-foreground">{t('loadingStandData')}</p>
           </div>
         </main>
         <PageFooter variant="page" />
@@ -294,15 +294,15 @@ export default function StandDetail() {
   if (!stand) {
     return (
       <div className="min-h-screen bg-background flex flex-col">
-        <PageHeader title="Stand não encontrado" />
+        <PageHeader title={t('standNotFound')} />
         <main className="flex-1 px-4 py-6 flex items-center justify-center">
           <div className="text-center">
-            <p className="text-muted-foreground mb-4">O stand #{id} não foi encontrado.</p>
+            <p className="text-muted-foreground mb-4">{t('standNotFoundDesc')}</p>
             <button
               onClick={() => navigate('/map')}
               className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold"
             >
-              Voltar ao Mapa
+              {t('backToMap')}
             </button>
           </div>
         </main>
@@ -333,7 +333,7 @@ export default function StandDetail() {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
-            <span>Voltar ao Mapa</span>
+            <span>{t('backToMap')}</span>
           </button>
 
           {/* ============================================================
@@ -370,7 +370,7 @@ export default function StandDetail() {
               - Texto sobre o stand e sua história
               ============================================================ */}
           <div className="bg-card border-2 border-border rounded-xl p-4 animate-fade-in">
-            <h2 className="text-lg font-bold text-foreground mb-2">Sobre o Expositor</h2>
+            <h2 className="text-lg font-bold text-foreground mb-2">{t('aboutExhibitor')}</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
               {description}
             </p>
@@ -386,7 +386,7 @@ export default function StandDetail() {
               - Mini-mapa com pin vermelho na posição do stand
               ============================================================ */}
           <div className="bg-card border-2 border-border rounded-xl p-4 animate-fade-in">
-            <h2 className="text-lg font-bold text-foreground mb-2">Localização no Mapa</h2>
+            <h2 className="text-lg font-bold text-foreground mb-2">{t('locationOnMap')}</h2>
             <div className="relative w-full h-48 rounded-xl overflow-hidden border border-border">
               <img 
                 src={mapaFenearte} 
@@ -413,7 +413,7 @@ export default function StandDetail() {
               - Lista de avaliações existentes
               ============================================================ */}
           <div className="bg-card border-2 border-border rounded-xl p-4 animate-fade-in">
-            <h2 className="text-lg font-bold text-foreground mb-4">Avaliações</h2>
+            <h2 className="text-lg font-bold text-foreground mb-4">{t('reviews')}</h2>
             
             {/* FORMULÁRIO DE NOVA AVALIAÇÃO */}
             <form onSubmit={handleSubmitReview} className="space-y-3 mb-6 pb-4 border-b border-border">
@@ -423,7 +423,7 @@ export default function StandDetail() {
                   type="text"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
-                  placeholder="Seu nome"
+                  placeholder={t('yourName')}
                   maxLength={30}
                   className="flex-1 px-3 py-2 border-2 border-border rounded-lg text-sm
                              focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
@@ -434,7 +434,7 @@ export default function StandDetail() {
                 type="text"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value.slice(0, 30))}
-                placeholder="Comentário (máx. 30)"
+                placeholder={t('commentMax30')}
                 maxLength={30}
                 className="w-full px-3 py-2 border-2 border-border rounded-lg text-sm
                            focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
@@ -449,7 +449,7 @@ export default function StandDetail() {
                              disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/90 transition-colors"
                 >
                   <Send className="w-4 h-4" />
-                  Enviar
+                  {t('send')}
                 </button>
               </div>
             </form>
@@ -470,7 +470,7 @@ export default function StandDetail() {
                 ))
               ) : (
                 <p className="text-center text-muted-foreground text-sm py-4">
-                  Seja o primeiro a avaliar!
+                  {t('beFirstToReview')}
                 </p>
               )}
             </div>

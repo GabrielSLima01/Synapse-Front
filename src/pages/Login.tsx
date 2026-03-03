@@ -127,7 +127,7 @@ export default function Login() {
 
     // Validação básica
     if (!whatsapp.trim()) {
-      setError('Por favor, informe seu número de WhatsApp.');
+      setError(t('pleaseEnterWhatsapp'));
       return;
     }
 
@@ -148,12 +148,12 @@ export default function Login() {
     setError('');
 
     if (lockSeconds > 0) {
-      setError(`Aguarde ${lockSeconds}s antes de tentar novamente.`);
+      setError(`${t('waitSeconds')} ${lockSeconds}s`);
       return;
     }
 
     if (!codigo.trim()) {
-      setError('Por favor, informe o código enviado.');
+      setError(t('pleaseEnterCode'));
       return;
     }
 
@@ -169,7 +169,7 @@ export default function Login() {
         startLockTimer(Number(match[1]));
         setError(msg);
       } else {
-        setError('Código inválido. Tente novamente.');
+        setError(t('invalidCode'));
       }
       return;
     }
@@ -207,7 +207,7 @@ export default function Login() {
                 )}
               </div>
               <h2 className="text-accessible-xl font-bold text-foreground">
-                {step === 'request' ? 'Entrar' : 'Confirmar Código'}
+                {step === 'request' ? t('enterButton') : t('confirmCode')}
               </h2>
             </div>
 
@@ -226,7 +226,7 @@ export default function Login() {
                 ============================================================ */}
             <div className="mb-4">
               <label htmlFor="whatsapp" className="block text-accessible-base font-semibold text-foreground mb-2">
-                Número de WhatsApp
+                {t('whatsappNumber')}
               </label>
               <PhoneInput
                 value={whatsapp}
@@ -234,7 +234,7 @@ export default function Login() {
                 disabled={step === 'verify'}
                 required
               />
-              <p className="mt-1 text-xs text-muted-foreground">Selecione o país e digite seu número</p>
+              <p className="mt-1 text-xs text-muted-foreground">{t('selectCountryAndNumber')}</p>
             </div>
 
             {/* ============================================================
@@ -243,7 +243,7 @@ export default function Login() {
             {step === 'verify' && (
               <div className="mb-6">
                 <label htmlFor="codigo" className="block text-accessible-base font-semibold text-foreground mb-2">
-                  Código de 6 dígitos
+                  {t('sixDigitCode')}
                 </label>
                 <input
                   type="text"
@@ -273,11 +273,11 @@ export default function Login() {
               {lockSeconds > 0 ? (
                 <span className="flex items-center justify-center gap-2">
                   <Timer className="w-5 h-5" />
-                  Aguarde {lockSeconds}s
+                  {t('waitSeconds')} {lockSeconds}s
                 </span>
               ) : step === 'request'
-                ? isSubmitting ? 'Enviando...' : 'Enviar Código'
-                : isSubmitting ? 'Confirmando...' : 'Confirmar Código'}
+                ? isSubmitting ? t('sendingCode') : t('sendCode')
+                : isSubmitting ? t('confirming') : t('confirmCode')}
             </button>
 
             {step === 'verify' && (
@@ -287,7 +287,7 @@ export default function Login() {
                 className="w-full mt-3 py-3 border-2 border-border rounded-xl text-sm font-medium
                            hover:bg-secondary transition-colors"
               >
-                Trocar número
+                {t('changeNumber')}
               </button>
             )}
 
@@ -297,9 +297,9 @@ export default function Login() {
             {step === 'request' && (
               <div className="mt-6 text-center">
                 <p className="text-muted-foreground">
-                  Não tem conta?{' '}
+                  {t('noAccount')}{' '}
                   <Link to="/signup" className="text-primary hover:underline font-semibold">
-                    Cadastre-se
+                    {t('signUpLink')}
                   </Link>
                 </p>
               </div>
