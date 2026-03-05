@@ -407,6 +407,13 @@ export const translations: Translations = {
     es: 'Cerrar Sesión',
   },
 
+  // ===== IDIOMA =====
+  languageLabel: {
+    pt: 'Idioma',
+    en: 'Language',
+    es: 'Idioma',
+  },
+
   // ===== HOME - BOTÕES E HEADER =====
   mapAndStands: {
     pt: 'Mapa e Stands',

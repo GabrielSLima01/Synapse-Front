@@ -50,12 +50,12 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { PageFooter } from '@/components/layout/PageFooter';
 import { FeatureButton } from '@/components/ui/FeatureButton';
-import { Info, MapIcon, Star, HelpCircle, Camera, LogIn, User, UserPlus, MessageSquare, LogOut } from 'lucide-react';
+import { Info, MapIcon, Star, HelpCircle, Camera, LogIn, User, UserPlus, MessageSquare, LogOut, Globe } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Home() {
   // Hook de tradução para internacionalização (PT/EN/ES)
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   // Hook de autenticação - retorna user logado e se é admin
   const { user, isAdmin, signOut } = useAuth();
@@ -88,8 +88,14 @@ export default function Home() {
       <header className="bg-primary text-primary-foreground py-4 px-4">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center justify-between mb-4">
-            {/* Espaçador para centralizar título */}
-            <div className="w-24" />
+            {/* BOTÃO DE IDIOMA */}
+            <Link
+              to="/language"
+              className="flex items-center gap-1.5 bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors rounded-lg px-3 py-2"
+            >
+              <Globe className="w-4 h-4" strokeWidth={2} />
+              <span className="text-sm font-medium">{t('languageLabel')}: {language.toUpperCase()}</span>
+            </Link>
             
             {/* TÍTULO DA APLICAÇÃO */}
             <h1 className="text-accessible-2xl font-bold animate-fade-in">
