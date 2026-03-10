@@ -675,6 +675,16 @@ export const translations: Translations = {
     en: 'No stand found.',
     es: 'Ningún stand encontrado.',
   },
+  topFairStands: {
+    pt: 'Top 3 Stands da Feira',
+    en: 'Top 3 Fair Stands',
+    es: 'Top 3 Stands de la Feria',
+  },
+  topByCategory: {
+    pt: 'Melhor por Categoria',
+    en: 'Best by Category',
+    es: 'Mejor por Categoría',
+  },
 
   // ===== STAND DETAIL =====
   loading: {

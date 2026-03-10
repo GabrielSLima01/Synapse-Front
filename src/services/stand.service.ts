@@ -56,6 +56,11 @@ export const standService = {
     return data || [];
   },
 
+  getTopStandsByCategory: async (limit = 3) => {
+    const { data } = await api.get<{ category: string; stands: ApiStand[] }[]>('/api/stands/top-by-category', { params: { limit } });
+    return data || [];
+  },
+
   getStandById: async (id: string) => {
     const { data } = await api.get<ApiStand>(`/api/stands/${id}`);
     return data;
