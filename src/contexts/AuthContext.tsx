@@ -5,6 +5,17 @@
 import React, { createContext, useContext, useEffect, useMemo, useState, ReactNode } from 'react';
 import type { User } from '@/types';
 import { authService } from '@/services/auth.service';
+import { AxiosError } from 'axios';
+
+function extractErrorMessage(error: unknown): string {
+  if (error instanceof AxiosError && error.response?.data?.message) {
+    return error.response.data.message;
+  }
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return 'Erro desconhecido';
+}
 
 interface AuthContextType {
   user: User | null;
@@ -64,7 +75,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await authService.requestCode({ whatsapp });
       return { error: null };
     } catch (error) {
-      return { error: error as Error };
+      return { error: new Error(extractErrorMessage(error)) };
     }
   };
 
@@ -76,7 +87,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setIsAdmin(data.user.isAdmin ?? data.user.role === 'ADMIN');
       return { error: null, user: data.user };
     } catch (error) {
-      return { error: error as Error };
+      return { error: new Error(extractErrorMessage(error)) };
     }
   };
 
@@ -85,7 +96,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await authService.register(payload);
       return { error: null };
     } catch (error) {
-      return { error: error as Error };
+      return { error: new Error(extractErrorMessage(error)) };
     }
   };
 
