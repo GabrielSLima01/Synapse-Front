@@ -19,7 +19,7 @@ interface PhoneInputProps {
 
 export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled = false, required = false }: PhoneInputProps) {
   return (
-    <div className="phone-input-wrapper w-full max-w-full overflow-hidden">
+    <div className="phone-input-wrapper" style={{ width: '100%' }}>
       <IntlPhoneInput
         defaultCountry="br"
         value={value}
@@ -27,70 +27,51 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
         disabled={disabled}
         inputProps={{
           id,
-          className: 'phone-intl-input',
           autoComplete: 'tel',
           required,
         }}
-        countrySelectorStyleProps={{
-          buttonClassName: 'phone-intl-country-btn',
+        style={{ width: '100%' }}
+        inputStyle={{
+          width: '100%',
+          flex: '1 1 0%',
+          minWidth: 0,
+          height: 'auto',
+          minHeight: '56px',
+          padding: '0 16px',
+          border: '2px solid hsl(var(--border))',
+          borderRadius: '0 12px 12px 0',
+          fontSize: '1.125rem',
+          lineHeight: '1.5',
+          color: 'hsl(var(--foreground))',
+          background: 'hsl(var(--background))',
+          boxSizing: 'border-box',
+          outline: 'none',
         }}
-        inputClassName="phone-intl-input"
+        countrySelectorStyleProps={{
+          buttonStyle: {
+            height: 'auto',
+            minHeight: '56px',
+            padding: '0 12px',
+            border: '2px solid hsl(var(--border))',
+            borderRight: 'none',
+            borderRadius: '12px 0 0 12px',
+            background: 'hsl(var(--card))',
+            fontSize: '1.125rem',
+          },
+        }}
       />
 
+      {/* Estilos de focus e dropdown (não podem ser inline) */}
       <style>{`
         .phone-input-wrapper .react-international-phone-input-container {
-          display: flex !important;
-          gap: 0 !important;
           width: 100% !important;
-          max-width: 100% !important;
-          box-sizing: border-box !important;
         }
-        .phone-input-wrapper .react-international-phone-country-selector {
-          flex-shrink: 0 !important;
-        }
-        .phone-input-wrapper .react-international-phone-country-selector-button {
-          height: auto !important;
-          min-height: 56px !important;
-          padding: 0 12px !important;
-          border: 2px solid hsl(var(--border)) !important;
-          border-right: none !important;
-          border-radius: 12px 0 0 12px !important;
-          background: hsl(var(--card)) !important;
-          font-size: 1.125rem !important;
-          cursor: pointer;
-          transition: border-color 0.2s;
-        }
-        .phone-input-wrapper .react-international-phone-country-selector-button:hover {
-          border-color: hsl(var(--primary) / 0.5) !important;
-        }
-        .phone-input-wrapper .react-international-phone-country-selector-button__flag-emoji {
-          font-size: 1.4rem;
-        }
-        .phone-input-wrapper .react-international-phone-country-selector-button__dropdown-arrow {
-          border-top-color: hsl(var(--muted-foreground));
-          margin-left: 4px;
-        }
-        .phone-input-wrapper .react-international-phone-input {
-          flex: 1 1 0% !important;
-          width: 100% !important;
-          min-width: 0 !important;
-          height: auto !important;
-          min-height: 56px !important;
-          padding: 0 16px !important;
-          border: 2px solid hsl(var(--border)) !important;
-          border-radius: 0 12px 12px 0 !important;
-          font-size: 1.125rem !important;
-          line-height: 1.5 !important;
-          color: hsl(var(--foreground)) !important;
-          background: hsl(var(--background)) !important;
-          box-sizing: border-box !important;
-          transition: border-color 0.2s, box-shadow 0.2s;
-          outline: none;
-        }
-        /* Borda laranja ao focar */
         .phone-input-wrapper .react-international-phone-input:focus {
           border-color: hsl(var(--primary)) !important;
           box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2) !important;
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-button:hover {
+          border-color: hsl(var(--primary) / 0.5) !important;
         }
         .phone-input-wrapper .react-international-phone-input:disabled {
           opacity: 0.6;
