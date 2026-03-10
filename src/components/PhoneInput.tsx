@@ -36,14 +36,14 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
         inputClassName="phone-intl-input"
       />
 
-      {/* Inline styles to match the project design system */}
+      {/* Estilos forçados para o input ocupar 100% da largura do form */}
       <style>{`
         .phone-input-wrapper .react-international-phone-input-container {
-          display: flex;
-          gap: 0;
-          width: 100%;
-          max-width: 100%;
-          box-sizing: border-box;
+          display: flex !important;
+          gap: 0 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
         }
         .phone-input-wrapper .react-international-phone-country-selector-button {
           height: auto;
@@ -56,6 +56,7 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
           font-size: 1.125rem;
           cursor: pointer;
           transition: border-color 0.2s;
+          flex-shrink: 0;
         }
         .phone-input-wrapper .react-international-phone-country-selector-button:hover {
           border-color: hsl(var(--primary) / 0.5);
@@ -68,8 +69,9 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
           margin-left: 4px;
         }
         .phone-input-wrapper .react-international-phone-input {
-          flex: 1;
-          min-width: 0;
+          flex: 1 !important;
+          width: 100% !important;
+          min-width: 0 !important;
           height: auto;
           min-height: 56px;
           padding: 0 16px;
@@ -81,6 +83,7 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
           background: hsl(var(--background));
           transition: border-color 0.2s, box-shadow 0.2s;
           outline: none;
+          box-sizing: border-box;
         }
         .phone-input-wrapper .react-international-phone-input:focus {
           border-color: hsl(var(--primary));
