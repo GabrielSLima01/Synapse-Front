@@ -36,29 +36,32 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
         inputClassName="phone-intl-input"
       />
 
-      {/* Inline styles to match the project design system */}
+      {/* Estilos forçados com !important para sobrescrever os defaults da lib */}
       <style>{`
         .phone-input-wrapper .react-international-phone-input-container {
-          display: flex;
-          gap: 0;
-          width: 100%;
-          max-width: 100%;
-          box-sizing: border-box;
+          display: flex !important;
+          gap: 0 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        .phone-input-wrapper .react-international-phone-country-selector {
+          flex-shrink: 0 !important;
         }
         .phone-input-wrapper .react-international-phone-country-selector-button {
-          height: auto;
-          min-height: 56px;
-          padding: 0 12px;
-          border: 2px solid hsl(var(--border));
-          border-right: none;
-          border-radius: 12px 0 0 12px;
-          background: hsl(var(--card));
-          font-size: 1.125rem;
+          height: auto !important;
+          min-height: 56px !important;
+          padding: 0 12px !important;
+          border: 2px solid hsl(var(--border)) !important;
+          border-right: none !important;
+          border-radius: 12px 0 0 12px !important;
+          background: hsl(var(--card)) !important;
+          font-size: 1.125rem !important;
           cursor: pointer;
           transition: border-color 0.2s;
         }
         .phone-input-wrapper .react-international-phone-country-selector-button:hover {
-          border-color: hsl(var(--primary) / 0.5);
+          border-color: hsl(var(--primary) / 0.5) !important;
         }
         .phone-input-wrapper .react-international-phone-country-selector-button__flag-emoji {
           font-size: 1.4rem;
@@ -68,23 +71,25 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
           margin-left: 4px;
         }
         .phone-input-wrapper .react-international-phone-input {
-          flex: 1;
-          min-width: 0;
-          height: auto;
-          min-height: 56px;
-          padding: 0 16px;
-          border: 2px solid hsl(var(--border));
-          border-radius: 0 12px 12px 0;
-          font-size: 1.125rem;
-          line-height: 1.5;
-          color: hsl(var(--foreground));
-          background: hsl(var(--background));
+          flex: 1 1 0% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          height: auto !important;
+          min-height: 56px !important;
+          padding: 0 16px !important;
+          border: 2px solid hsl(var(--border)) !important;
+          border-radius: 0 12px 12px 0 !important;
+          font-size: 1.125rem !important;
+          line-height: 1.5 !important;
+          color: hsl(var(--foreground)) !important;
+          background: hsl(var(--background)) !important;
           transition: border-color 0.2s, box-shadow 0.2s;
           outline: none;
+          box-sizing: border-box !important;
         }
         .phone-input-wrapper .react-international-phone-input:focus {
-          border-color: hsl(var(--primary));
-          box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+          border-color: hsl(var(--primary)) !important;
+          box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2) !important;
         }
         .phone-input-wrapper .react-international-phone-input:disabled {
           opacity: 0.6;
