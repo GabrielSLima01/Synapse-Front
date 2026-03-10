@@ -3,6 +3,7 @@
  *
  * Usa react-international-phone com bandeiras e busca de países.
  * Acessível para idosos: fonte grande, placeholder claro.
+ * Borda laranja (primary) ao clicar/focar no campo.
  */
 
 import { PhoneInput as IntlPhoneInput } from 'react-international-phone';
@@ -36,7 +37,6 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
         inputClassName="phone-intl-input"
       />
 
-      {/* Estilos forçados com !important para sobrescrever os defaults da lib */}
       <style>{`
         .phone-input-wrapper .react-international-phone-input-container {
           display: flex !important;
@@ -83,10 +83,11 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
           line-height: 1.5 !important;
           color: hsl(var(--foreground)) !important;
           background: hsl(var(--background)) !important;
+          box-sizing: border-box !important;
           transition: border-color 0.2s, box-shadow 0.2s;
           outline: none;
-          box-sizing: border-box !important;
         }
+        /* Borda laranja ao focar */
         .phone-input-wrapper .react-international-phone-input:focus {
           border-color: hsl(var(--primary)) !important;
           box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2) !important;
