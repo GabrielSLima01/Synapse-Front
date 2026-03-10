@@ -18,7 +18,7 @@ interface PhoneInputProps {
 
 export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled = false, required = false }: PhoneInputProps) {
   return (
-    <div className="phone-input-wrapper">
+    <div className="phone-input-wrapper w-full max-w-full overflow-hidden">
       <IntlPhoneInput
         defaultCountry="br"
         value={value}
@@ -42,6 +42,8 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
           display: flex;
           gap: 0;
           width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
         }
         .phone-input-wrapper .react-international-phone-country-selector-button {
           height: auto;
@@ -67,6 +69,7 @@ export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled 
         }
         .phone-input-wrapper .react-international-phone-input {
           flex: 1;
+          min-width: 0;
           height: auto;
           min-height: 56px;
           padding: 0 16px;
