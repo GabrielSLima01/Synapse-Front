@@ -1,12 +1,11 @@
 /**
- * PhoneInput — campo de telefone com seletor de país
+ * PhoneInput — campo de telefone com seletor de país (DDD + código do país)
  *
- * Usa usePhoneInput (hook) para controle total do layout.
- * O input ocupa 100% da largura do form, alinhado com os outros campos.
+ * Usa react-international-phone com bandeiras e busca de países.
+ * Acessível para idosos: fonte grande, placeholder claro.
  */
 
-import { useRef } from 'react';
-import { usePhoneInput, FlagImage, defaultCountries, parseCountry } from 'react-international-phone';
+import { PhoneInput as IntlPhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 
 interface PhoneInputProps {
@@ -18,52 +17,100 @@ interface PhoneInputProps {
 }
 
 export default function PhoneInput({ value, onChange, id = 'whatsapp', disabled = false, required = false }: PhoneInputProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const { inputValue, handlePhoneValueChange, country, setCountry } = usePhoneInput({
-    defaultCountry: 'br',
-    value,
-    countries: defaultCountries,
-    onChange: (data) => onChange(data.phone),
-    inputRef,
-  });
-
-  const countryEntry = defaultCountries.find((c) => parseCountry(c).iso2 === country.iso2);
-  const dialCode = countryEntry ? parseCountry(countryEntry).dialCode : country.dialCode;
-
   return (
-    <div className="flex w-full">
-      {/* Botão do país com bandeira e DDI */}
-      <div className="flex items-center gap-1.5 px-3 border-2 border-r-0 border-border rounded-l-xl bg-card flex-shrink-0">
-        <select
-          value={country.iso2}
-          onChange={(e) => setCountry(e.target.value)}
-          disabled={disabled}
-          className="absolute opacity-0 w-10 h-full cursor-pointer"
-          aria-label="Selecionar país"
-        />
-        <FlagImage iso2={country.iso2} size="24px" />
-        <span className="text-xs text-muted-foreground">▼</span>
-        <span className="text-base font-medium text-foreground">+{dialCode}</span>
-      </div>
-
-      {/* Campo de entrada do número */}
-      <input
-        ref={inputRef}
-        id={id}
-        type="tel"
-        value={inputValue}
-        onChange={handlePhoneValueChange}
+    <div className="phone-input-wrapper w-full max-w-full overflow-hidden">
+      <IntlPhoneInput
+        defaultCountry="br"
+        value={value}
+        onChange={(phone) => onChange(phone)}
         disabled={disabled}
-        required={required}
-        autoComplete="tel"
-        placeholder="(81) 99999-9999"
-        className="flex-1 min-w-0 py-4 px-4 border-2 border-border rounded-r-xl
-                   text-accessible-base text-foreground bg-background
-                   focus:border-primary focus:ring-2 focus:ring-primary/20
-                   disabled:opacity-60 disabled:cursor-not-allowed
-                   transition-colors outline-none"
+        inputProps={{
+          id,
+          className: 'phone-intl-input',
+          autoComplete: 'tel',
+          required,
+        }}
+        countrySelectorStyleProps={{
+          buttonClassName: 'phone-intl-country-btn',
+        }}
+        inputClassName="phone-intl-input"
       />
+
+      {/* Inline styles to match the project design system */}
+      <style>{`
+        .phone-input-wrapper .react-international-phone-input-container {
+          display: flex;
+          gap: 0;
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-button {
+          height: auto;
+          min-height: 56px;
+          padding: 0 12px;
+          border: 2px solid hsl(var(--border));
+          border-right: none;
+          border-radius: 12px 0 0 12px;
+          background: hsl(var(--card));
+          font-size: 1.125rem;
+          cursor: pointer;
+          transition: border-color 0.2s;
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-button:hover {
+          border-color: hsl(var(--primary) / 0.5);
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-button__flag-emoji {
+          font-size: 1.4rem;
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-button__dropdown-arrow {
+          border-top-color: hsl(var(--muted-foreground));
+          margin-left: 4px;
+        }
+        .phone-input-wrapper .react-international-phone-input {
+          flex: 1;
+          min-width: 0;
+          height: auto;
+          min-height: 56px;
+          padding: 0 16px;
+          border: 2px solid hsl(var(--border));
+          border-radius: 0 12px 12px 0;
+          font-size: 1.125rem;
+          line-height: 1.5;
+          color: hsl(var(--foreground));
+          background: hsl(var(--background));
+          transition: border-color 0.2s, box-shadow 0.2s;
+          outline: none;
+        }
+        .phone-input-wrapper .react-international-phone-input:focus {
+          border-color: hsl(var(--primary));
+          box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+        }
+        .phone-input-wrapper .react-international-phone-input:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-dropdown {
+          z-index: 50;
+          max-height: 240px;
+          border-radius: 12px;
+          border: 2px solid hsl(var(--border));
+          background: hsl(var(--card));
+          box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-dropdown__list-item {
+          padding: 8px 12px;
+          font-size: 0.95rem;
+          color: hsl(var(--foreground));
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-dropdown__list-item:hover {
+          background: hsl(var(--secondary));
+        }
+        .phone-input-wrapper .react-international-phone-country-selector-dropdown__list-item--selected {
+          background: hsl(var(--primary) / 0.1);
+          color: hsl(var(--primary));
+        }
+      `}</style>
     </div>
   );
 }
